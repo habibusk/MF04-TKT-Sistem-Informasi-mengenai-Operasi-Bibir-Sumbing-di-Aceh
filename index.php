@@ -22,16 +22,16 @@
         </div>
         <div class="menu">
             <ul>
-                <a href="">
+                <a href="#">
                     <li>Home</li>
                 </a>
-                <a href="">
+                <a href="kasus.php">
                     <li>Kasus</li>
                 </a>
-                <a href="">
+                <a href="donasi.php">
                     <li>Donasi</li>
                 </a>
-                <a href="">
+                <a href="contactus.php">
                     <li>Contact Us</li>
                 </a>
             </ul>
