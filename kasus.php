@@ -1,25 +1,8 @@
 <?php
-//hubungkan function
 require 'function.php';
 
-//cek tombol submit apakah sudah ditekan
-if (isset($_POST["submit"])) {
-    //cek data berhasil di input
-    if (tambah_data($_POST) > 0) {
-        echo
-        "<script>
-                alert('Data Kasus Berhasil Di Tambahkan');
-                document.location.href = 'kasus.php';
-            </script> 
-            ";
-    } else {
-        echo "<script>
-        alert('Data Kasus GAGAL Ditambahkan !!!');
-    </script>";
-    }
-}
+$kasus = query("SELECT * FROM db_kasus");
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,14 +11,13 @@ if (isset($_POST["submit"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/kasus.css">
+    <link rel="stylesheet" href="css/kasus2.css">
     <link rel="icon" type="image/x-icon" href="img/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>UPLOAD KASUS | FullSenyum</title>
-
+    <title>KASUS | FullSenyum</title>
 </head>
 
 <body>
@@ -66,45 +48,51 @@ if (isset($_POST["submit"])) {
     </div>
     <!-- end navbar menu navigasi -->
 
-    <!-- FORM UPLOAD -->
 
-    <form action="" method="post" enctype="multipart/form-data">
-        <div class="forminputan">
-            <div class="upfoto">
-                <div class="priview">
-                    <!-- <img id="output" height="150px" width="150px"> -->
-                </div>
-                <div class="input-gambar">
-                    <input type="file" accept="image/*" onchange="loadFile(event)" name="foto" require>
 
-                </div>
-            </div>
-            <div class="input-data">
-                <ul>
-                    <li>
-                        <label for="nama">NAMA :</label><br>
-                        <input type="text " id="nama" name="nama" required>
-                    </li>
-                    <li>
-                        <label for="umur">UMUR :</label><br>
-                        <input type="text " id="umur" name="umur" required>
-                    </li>
-                    <li>
-                        <label for="alamat">ALAMAT :</label><br>
-                        <input type="text " id="alamat" name="alamat" required>
-                    </li>
-                    <li>
-                        <label for="deskripsi">Deskripsi :</label><br>
-                        <textarea name="deskripsi" id="deskripsi" cols="52" rows="5" required></textarea>
-                    </li>
-                </ul>
+    <!-- start banner website -->
+    <div class="banner">
+        <div class="tagline">
+            <p>Temukan Dan Berikan <br> Senyuman Untuk Mereka</p>
+            <div class="join">
+                <a href="upload.php"><button class="tmbljoint">UPLOAD SEKARANG</button></a>
             </div>
         </div>
-        <div class="submit">
-            <button type="submit" name="submit">KIRIM</button>
+        <div class="ilus">
+            <img src="img/Smile 3.png" alt="">
         </div>
-    </form>
+    </div>
+    <!-- end banner website -->
 
+    <!-- Daftar Kasus -->
+    <div class="container">
+        <div class="row" style="margin: 20px;">
+            <?php foreach ($kasus as $data_kasus) : ?>
+                <div class="col-md-3">
+                    <div class="card mt-4">
+                        <img src="img/gambarkasus/<?= $data_kasus["foto_pasien"] ?>" class="img-thumbnail mx-auto" alt="" height="230">
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $data_kasus["nama_pasien"] ?></h5>
+                            <h6 class="card-title">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#00B4D8" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                                </svg>
+                                <?= $data_kasus["alamat_pasien"] ?>
+
+                            </h6>
+                            <p class="card-text" style="overflow: hidden; white-space:nowrap; text-overflow:ellipsis;">
+                                <?= $data_kasus["deskripsi_kasus"] ?>
+                            </p>
+                            <a href="" class="btn btn-primary">Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <!-- end Daftar Kasus -->
+
+    <!-- FOOTER -->
     <div class="foot">
         <div class="icon-logo">
             <img src="img/logo putih.png" alt="">
@@ -130,14 +118,6 @@ if (isset($_POST["submit"])) {
             </ul>
         </div>
     </div>
-    <script>
-        var loadFile = function(event) {
-            var output = document.getElementById('output');
-            output.src = URL.createObjectURL(event.target.file[0]);
-        };
-    </script>
-
 </body>
-
 
 </html>
