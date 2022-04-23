@@ -22,16 +22,16 @@
         </div>
         <div class="menu">
             <ul>
-                <a href="#">
+                <a href="">
                     <li>Home</li>
                 </a>
-                <a href="kasus.php">
+                <a href="">
                     <li>Kasus</li>
                 </a>
-                <a href="donasi.php">
+                <a href="">
                     <li>Donasi</li>
                 </a>
-                <a href="contactus.php">
+                <a href="">
                     <li>Contact Us</li>
                 </a>
             </ul>
@@ -45,25 +45,25 @@
     <!-- start banner website -->
     <div class="banner">
         <div class="tagline">
-            <p>Jadikan Senyum Mereka <br> Menjadi lebih indah</p>
-            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Asperiores perferendis amet facilis at, rem et,
-                consequatur doloremque nisi ullam, sed eaque placeat
-                excepturi qui nemo ex! Labore quos officia amet?</h4>
-            <div class="join">
-                <button class="tmbljoint">JOIN SEKARANG</button>
+            <p>Apa itu <br> Full Senyum.id
+
+        </p>
+
+            </h4>
+            <div>
+                
             </div>
         </div>
         <div class="ilus">
-            <img src="img/smile.png" alt="">
+            <img src="img/logo putih.png" alt="">
         </div>
     </div>
     <!-- end banner website -->
 
     <!-- start about us -->
     <div class="about">
-        <div class="foto">
-            <img src="img/Group 2.png" alt="">
+        <div class="foto" >
+            <img src="img/Group 21.png" alt="" >
         </div>
         <div class="tentang">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam repellat obcaecati accusamus,
@@ -74,60 +74,17 @@
                 dolorem qui fuga velit quisquam sunt ex, doloremque ratione,
                 labore sed cumque enim aliquam aperiam quis incidunt ab!
             </p>
-            <div class="join">
-                <button class="tmbljoint">JOIN SEKARANG</button>
-            </div>
+            
         </div>
     </div>
     <div class="dokumentasi">
         <h2>DOKUMENTASI</h2>
-        <div class="dok">
-            <img src="img/image 3.png" alt="">
-            <img src="img/image 4.png" alt="">
+        <div class="dok">        
+            <img src="img/image 6.png" alt="">
+            <img src="img/image 6.png" alt="">
             <img src="img/image 6.png" alt="">
         </div>
-        <div class="join">
-            <button class="tmbljoint">LEBIH BANYAK</button>
-        </div>
     </div>
-
-    <div class="testimoni">
-
-        <div class="testi">
-            <div class="profil">
-                <img src="img/logo.png" alt="">
-            </div>
-            <div class="nama">
-                <p>Nama</p>
-            </div>
-            <div class="komentar">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore harum nulla vel molestiae repellendus? Repudiandae est eveniet assumenda minima odit earum soluta maiores dolore excepturi, praesentium quae in possimus veniam!</p>
-            </div>
-        </div>
-        <div class="testi">
-            <div class="profil">
-                <img src="img/logo.png" alt="">
-            </div>
-            <div class="nama">
-                <p>Nama</p>
-            </div>
-            <div class="komentar">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore harum nulla vel molestiae repellendus? Repudiandae est eveniet assumenda minima odit earum soluta maiores dolore excepturi, praesentium quae in possimus veniam!</p>
-            </div>
-        </div>
-        <div class="testi">
-            <div class="profil">
-                <img src="img/logo.png" alt="">
-            </div>
-            <div class="nama">
-                <p>Nama</p>
-            </div>
-            <div class="komentar">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore harum nulla vel molestiae repellendus? Repudiandae est eveniet assumenda minima odit earum soluta maiores dolore excepturi, praesentium quae in possimus veniam!</p>
-            </div>
-        </div>
-    </div>
-
 
     <div class="foot">
         <div class="icon-logo">
@@ -139,10 +96,10 @@
         <div class="menu-foot">
             <h3>Main Menu</h3>
             <ul>
-                <li>Beranda</li>
+                <li>Home</li>
                 <li>Kasus</li>
                 <li>Donasi</li>
-                <li>Hubungi Kami</li>
+                <li>Contact Us</li>
             </ul>
         </div>
         <div class="sosmed">
