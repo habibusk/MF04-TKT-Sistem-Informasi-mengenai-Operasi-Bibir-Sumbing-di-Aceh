@@ -139,10 +139,10 @@
         <div class="menu-foot">
             <h3>Main Menu</h3>
             <ul>
-                <li>Home</li>
+                <li>Beranda</li>
                 <li>Kasus</li>
                 <li>Donasi</li>
-                <li>Contact Us</li>
+                <li>Hubungi Kami</li>
             </ul>
         </div>
         <div class="sosmed">
