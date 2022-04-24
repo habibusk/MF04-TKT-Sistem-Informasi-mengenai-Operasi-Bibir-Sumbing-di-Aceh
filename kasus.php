@@ -94,7 +94,7 @@ if (isset($_POST["cari"])) {
                             <p class="card-text" style="overflow: hidden; white-space:nowrap; text-overflow:ellipsis;">
                                 <?= $data_kasus["deskripsi_kasus"] ?>
                             </p>
-                            <a href="" class="btn btn-primary">Selengkapnya</a>
+                            <a href="detail_pasien.php?id_kasus=<?= $data_kasus["id_kasus"]; ?>" class="btn btn-primary">Selengkapnya</a>
                         </div>
                     </div>
                 </div>
