@@ -1,0 +1,150 @@
+/* HTML Setting */
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    overflow-x: hidden;
+    background-color: #ECFAFF;
+}
+
+/* NAVBAR STYLE */
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    background-color: #fff;
+}
+.logo{
+    width: 81px;
+    height: 81px;
+    align-items: left;
+    padding-left: 15px;
+}
+.menu ul{
+    text-decoration: none;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-left: -40px;
+    font-family: 'poppins', sans-serif;
+    font-weight: 500;
+    color: #0099B8;
+}
+.menu li{
+    padding-right: 90px;
+}
+.menu  a{
+    text-decoration: none;
+    color:  #0099B8;
+}
+.lout{
+
+    padding: 15px;
+}
+
+/* END NAVBAR STYLE */
+
+/* BANNER */
+.banner{
+    background-color:#fff;
+    display: flex;
+
+    justify-content: space-between;
+
+}
+.ilus{
+    align-items: center;
+    justify-content: center;
+    
+}
+.tagline{
+    display: flex;
+    margin-left: 10%;
+    justify-content: center;
+    padding-left: 10px;
+    font-size: 40px;
+    font-family: 'poppins', sans-serif;
+    font-weight: 800;
+    color: #0099B8;
+    flex-direction: column;
+}
+.tagline h4{
+    font-size: 14px;
+    font-weight: 500;
+    width: 59%;
+    color: #C4C4C4;
+}
+.tmbljoint{
+    text-decoration: none;
+    list-style: none;
+    border-style: none;
+    background-image: linear-gradient(to right, #00B4D8, #80eaff);
+    width: 202px;
+    height: 60px;
+    border-radius: 24px;
+    color: #fff;
+    font-family: 'poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+/* END BANNER */
+
+/* FOOTER */
+.foot{
+    background-color: #0099B8;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 60px;
+    border-radius: 30px 30px 0px 0px;
+}
+.alamat{
+    color: #A9D5FB;
+}
+.menu-foot{
+    color: #A9D5FB;
+    font-family: 'poppins', sans-serif; 
+}
+.menu-foot ul{
+    color: #A9D5FB;
+    list-style: none;
+}
+.sosmed{
+    color: #A9D5FB;
+}
+.sosmed ul{
+    color: #A9D5FB;
+    list-style: none;
+    line-height: 30px;
+}
+/* END FOOTER */
+
+<<<<<<< Updated upstream:css/detail.css
+.pasien{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+.deskripsi{
+    padding: 50px;
+}
+.join{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+.data_pasien ul{
+    list-style: none;
+=======
+.konten{
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+>>>>>>> Stashed changes:css/contactus.css
+}

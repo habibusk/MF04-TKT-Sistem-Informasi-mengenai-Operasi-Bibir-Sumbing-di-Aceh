@@ -75,7 +75,7 @@ function upload()
     $nama_file_baru .= $extensi_gambar;
     move_uploaded_file($tmpName, 'img/gambarkasus/' . $nama_file_baru);
 
-    return $nama_file;
+    return $nama_file_baru;
 }
 
 function cari($search)

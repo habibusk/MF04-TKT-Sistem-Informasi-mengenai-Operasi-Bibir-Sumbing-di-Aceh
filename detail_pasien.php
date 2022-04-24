@@ -1,12 +1,10 @@
 <?php
 require 'function.php';
 
-$kasus = query("SELECT * FROM db_kasus");
+$id = $_GET["id_kasus"];
 
-#cek apakah tombol cari ditekan
-if (isset($_POST["cari"])) {
-    $kasus = cari($_POST["search"]);
-}
+$kasus = query("SELECT * FROM db_kasus WHERE id_kasus = $id")[0];
+
 ?>
 
 <!DOCTYPE html>
@@ -16,13 +14,13 @@ if (isset($_POST["cari"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/kasus2.css">
+    <link rel="stylesheet" href="css/detail.css">
     <link rel="icon" type="image/x-icon" href="img/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>KASUS | FullSenyum</title>
+    <title>Detail pasien | FullSenyum</title>
 </head>
 
 <body>
@@ -52,57 +50,27 @@ if (isset($_POST["cari"])) {
         </div>
     </div>
     <!-- end navbar menu navigasi -->
-
-
-
-    <!-- start banner website -->
-    <div class="banner">
-        <div class="tagline">
-            <p>Temukan Dan Berikan <br> Senyuman Untuk Mereka</p>
-            <div class="join">
-                <a href="upload.php"><button class="tmbljoint">UPLOAD SEKARANG</button></a>
-            </div>
+    <div class="pasien">
+        <div class="foto_pasien">
+            <img src="img/gambarkasus/<?= $kasus["foto_pasien"] ?>" alt="">
         </div>
-        <div class="ilus">
-            <img src="img/Smile 3.png" alt="">
+        <div class="data_pasien">
+            <ul>
+                <li>Nama :<?= $kasus["nama_pasien"] ?></li>
+                <li>Umur :<?= $kasus["umur_pasien"] ?> </li>
+                <li>Alamat :<?= $kasus["alamat_pasien"] ?> </li>
+            </ul>
         </div>
+
     </div>
-    <!-- end banner website -->
-
-    <!-- Daftar Kasus -->
-    <div class="container">
-        <form action="" method="post">
-
-            <input type="text" size="20" name="search" autocomplete="off" autofocus id="keyword">
-            <button type="submit" class="btn btn-primary" name="cari" id="tombolcari">search</button>
-
-        </form>
-        <div class="row" style="margin: 20px;">
-            <?php foreach ($kasus as $data_kasus) : ?>
-                <div class="col-md-3">
-                    <div class="card mt-4">
-                        <img src="img/gambarkasus/<?= $data_kasus["foto_pasien"] ?>" class="img-thumbnail mx-auto" alt="" height="230">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $data_kasus["nama_pasien"] ?></h5>
-                            <h6 class="card-title"><?= $data_kasus["umur_pasien"] ?></h6>
-                            <h6 class="card-title">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#00B4D8" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
-                                </svg>
-                                <?= $data_kasus["alamat_pasien"] ?>
-
-                            </h6>
-
-                            <a href="detail_pasien.php?id_kasus=<?= $data_kasus["id_kasus"]; ?>" class="btn btn-primary">Selengkapnya</a>
-                        </div>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        </div>
+    <div class="deskripsi">
+        <p><?= $kasus["deskripsi_kasus"] ?></p>
     </div>
-    <!-- end Daftar Kasus -->
+    <div class="join">
+        <a href="donasi.php"><button class="tmbljoint">DONASI SEKARANG</button></a>
+    </div>
 
-    <!-- FOOTER -->
+
     <div class="foot">
         <div class="icon-logo">
             <img src="img/logo putih.png" alt="">
