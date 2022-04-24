@@ -77,3 +77,14 @@ function upload()
 
     return $nama_file;
 }
+
+function cari($search)
+{
+    $query = "SELECT * FROM db_kasus 
+            WHERE nama_pasien LIKE '%$search%' 
+
+            
+            ";
+
+    return query($query);
+}
