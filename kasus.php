@@ -42,7 +42,7 @@ if (isset($_POST["cari"])) {
                 <a href="donasi.php">
                     <li>Donasi</li>
                 </a>
-                <a href="">
+                <a href="contactus.php">
                     <li>Contact Us</li>
                 </a>
             </ul>
@@ -84,6 +84,7 @@ if (isset($_POST["cari"])) {
                         <img src="img/gambarkasus/<?= $data_kasus["foto_pasien"] ?>" class="img-thumbnail mx-auto" alt="" height="230">
                         <div class="card-body">
                             <h5 class="card-title"><?= $data_kasus["nama_pasien"] ?></h5>
+                            <h5 class="card-title"><?= $data_kasus["umur_pasien"] ?></h5>
                             <h6 class="card-title">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#00B4D8" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
                                     <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
@@ -91,9 +92,9 @@ if (isset($_POST["cari"])) {
                                 <?= $data_kasus["alamat_pasien"] ?>
 
                             </h6>
-                            <p class="card-text" style="overflow: hidden; white-space:nowrap; text-overflow:ellipsis;">
+                            <!-- <p class="card-text" style="overflow: hidden; white-space:nowrap; text-overflow:ellipsis;">
                                 <?= $data_kasus["deskripsi_kasus"] ?>
-                            </p>
+                            </p> -->
                             <a href="detail_pasien.php?id_kasus=<?= $data_kasus["id_kasus"]; ?>" class="btn btn-primary">Selengkapnya</a>
                         </div>
                     </div>
