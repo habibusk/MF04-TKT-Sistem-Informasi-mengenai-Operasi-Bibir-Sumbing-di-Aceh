@@ -55,7 +55,7 @@ if (isset($_POST["submit"])) {
                 <a href="donasi.php">
                     <li>Donasi</li>
                 </a>
-                <a href="">
+                <a href="contactus.php">
                     <li>Contact Us</li>
                 </a>
             </ul>
@@ -75,7 +75,7 @@ if (isset($_POST["submit"])) {
                     <!-- <img id="output" height="150px" width="150px"> -->
                 </div>
                 <div class="input-gambar">
-                    <input type="file" accept="image/*" onchange="loadFile(event)" name="foto" require>
+                    <input type="file" accept="image/*" onchange="readURL(this);" name="foto" require>
 
                 </div>
             </div>
@@ -131,10 +131,17 @@ if (isset($_POST["submit"])) {
         </div>
     </div>
     <script>
-        var loadFile = function(event) {
-            var output = document.getElementById('output');
-            output.src = URL.createObjectURL(event.target.file[0]);
-        };
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#output')
+                        .attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
     </script>
 
 </body>
