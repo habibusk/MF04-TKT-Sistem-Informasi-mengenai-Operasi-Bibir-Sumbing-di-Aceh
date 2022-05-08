@@ -1,6 +1,10 @@
-<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+>>>>>>> main
 <!DOCTYPE html>
 <html lang="en">
 
@@ -99,10 +103,15 @@
 </body>
 
 =======
+<<<<<<< HEAD
+=======
 =======
 >>>>>>> Stashed changes
 =======
 >>>>>>> 2004111010035
+>>>>>>> main
+=======
+>>>>>>> Stashed changes
 <!DOCTYPE html>
 <html lang="en">
 
@@ -110,6 +119,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+    <link rel="stylesheet" href="css/contactus.css">
+=======
 <<<<<<< HEAD
 <<<<<<< Updated upstream
     <link rel="stylesheet" href="css/contactus.css">
@@ -119,11 +132,19 @@
 =======
     <link rel="stylesheet" href="css/contac.css">
 >>>>>>> 2004111010035
+>>>>>>> main
+=======
+    <link rel="stylesheet" href="css/contac.css">
+>>>>>>> Stashed changes
     <link rel="icon" type="image/x-icon" href="img/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+    <title>HOME | FullSenyum</title>
+=======
 <<<<<<< HEAD
 <<<<<<< Updated upstream
     <title>HOME | FullSenyum</title>
@@ -133,6 +154,10 @@
 =======
     <title>CONTAC US | FullSenyum</title>
 >>>>>>> 2004111010035
+>>>>>>> main
+=======
+    <title>CONTAC US | FullSenyum</title>
+>>>>>>> Stashed changes
 </head>
 
 <body>
@@ -152,7 +177,7 @@
                 <a href="donasi.php">
                     <li>Donasi</li>
                 </a>
-                <a href="">
+                <a href="#">
                     <li>Hubungi Kami</li>
                 </a>
             </ul>
@@ -163,8 +188,12 @@
     </div>
     <!-- end navbar menu navigasi -->
 
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 <<<<<<< Updated upstream
+>>>>>>> main
     <!-- start banner website -->
     <div class="banner">
         <div class="tagline">
@@ -184,6 +213,8 @@
     <!-- start konten -->
     <div class="konten">
         <h1>isi konten di sini!!</h1>
+<<<<<<< HEAD
+=======
 =======
 =======
 >>>>>>> 2004111010035
@@ -191,6 +222,12 @@
 
     <!-- start konten -->
     <div class="konten">
+=======
+
+
+    <!-- start konten -->
+    <div class="konten">
+>>>>>>> Stashed changes
         <div class="kontak">
             <h6>KONTAK KAMI</h6>
             <h3>Ada Yang Bisa Kami Bantu ?</h3>
@@ -231,10 +268,14 @@
                 </form>
             </div>
         </div>
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 >>>>>>> Stashed changes
 =======
 >>>>>>> 2004111010035
+>>>>>>> main
+=======
+>>>>>>> Stashed changes
     </div>
     <!-- end konten -->
 
@@ -268,6 +309,11 @@
     </div>
 </body>
 
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+>>>>>>> main
+</html>
+=======
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 >>>>>>> main
@@ -278,3 +324,7 @@
 =======
 </html
 >>>>>>> 2004111010035
+>>>>>>> main
+=======
+</html
+>>>>>>> Stashed changes
