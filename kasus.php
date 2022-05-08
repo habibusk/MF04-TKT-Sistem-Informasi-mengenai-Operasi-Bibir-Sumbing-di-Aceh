@@ -2,6 +2,11 @@
 require 'function.php';
 
 $kasus = query("SELECT * FROM db_kasus");
+
+#cek apakah tombol cari ditekan
+if (isset($_POST["cari"])) {
+    $kasus = cari($_POST["search"]);
+}
 ?>
 
 <!DOCTYPE html>
@@ -66,6 +71,12 @@ $kasus = query("SELECT * FROM db_kasus");
 
     <!-- Daftar Kasus -->
     <div class="container">
+        <form action="" method="post">
+
+            <input type="text" size="20" name="search" autocomplete="off" autofocus id="keyword">
+            <button type="submit" class="btn btn-primary" name="cari" id="tombolcari">search</button>
+
+        </form>
         <div class="row" style="margin: 20px;">
             <?php foreach ($kasus as $data_kasus) : ?>
                 <div class="col-md-3">
@@ -83,7 +94,7 @@ $kasus = query("SELECT * FROM db_kasus");
                             <p class="card-text" style="overflow: hidden; white-space:nowrap; text-overflow:ellipsis;">
                                 <?= $data_kasus["deskripsi_kasus"] ?>
                             </p>
-                            <a href="" class="btn btn-primary">Selengkapnya</a>
+                            <a href="detail_pasien.php?id_kasus=<?= $data_kasus["id_kasus"]; ?>" class="btn btn-primary">Selengkapnya</a>
                         </div>
                     </div>
                 </div>
