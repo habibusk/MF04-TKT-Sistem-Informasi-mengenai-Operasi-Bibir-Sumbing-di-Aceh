@@ -1,3 +1,12 @@
+<?php
+require 'function.php';
+
+$id = $_GET["id_kasus"];
+
+$kasus = query("SELECT * FROM db_kasus WHERE id_kasus = $id")[0];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,13 +14,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/donasi.css">
+    <link rel="stylesheet" href="css/detail.css">
     <link rel="icon" type="image/x-icon" href="img/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>DONASI | FullSenyum</title>
+    <title>Detail pasien | FullSenyum</title>
     <style>
         .tmbllgn {
             text-decoration: none;
@@ -32,14 +41,6 @@
 
         @media screen and (max-width: 424px) {
 
-            .banner {
-                justify-content: center;
-                align-items: center;
-                flex-direction: column-reverse;
-                margin-bottom: 20px;
-
-            }
-
             .menu ul li {
                 background-color: #fff;
                 justify-content: center;
@@ -49,35 +50,6 @@
             .menu ul li:hover {
                 transition: 0.1s;
                 background-color: #ededed;
-            }
-
-            .ilus img {
-                display: flex;
-                width: 300px;
-                height: 300px;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .tagline {
-                font-size: 20px;
-            }
-
-            .barcode {
-                flex-direction: column;
-                margin-left: 0;
-                margin: 0;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .qr {
-                padding-left: 0;
-            }
-
-            .bank {
-                padding-right: 0;
-                margin-bottom: 20px;
             }
 
             .foot {
@@ -97,6 +69,32 @@
             .sosmed {
                 margin-top: 10px;
             }
+
+            .pasien {
+                flex-direction: column;
+            }
+
+            .foto_pasien {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .foto_pasien img {
+                width: 300px;
+
+            }
+
+            .deskripsi {
+
+                padding: 10px;
+            }
+
+            .data_pasien {
+
+                margin-top: 20px;
+            }
+
         }
     </style>
 </head>
@@ -115,13 +113,13 @@
         <div class="menu collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item d-flex justify-content-center">
-                    <a class="nav-link" href="index.php">Home</a>
+                    <a class="nav-link" href="#">Home</a>
                 </li>
                 <li class="nav-item d-flex justify-content-center">
                     <a class="nav-link" href="Kasus.php">Kasus</a>
                 </li>
                 <li class="nav-item d-flex justify-content-center">
-                    <a class="nav-link" href="#">Donasi</a>
+                    <a class="nav-link" href="donasi.php">Donasi</a>
                 </li>
                 <li class="nav-item d-flex justify-content-center">
                     <a class="nav-link" href="contactus.php">Contact Us</a>
@@ -132,35 +130,27 @@
 
     </nav>
     <!-- end navbar menu navigasi -->
+    <div class="pasien">
+        <div class="foto_pasien">
+            <img src="img/gambarkasus/<?= $kasus["foto_pasien"] ?>" alt="">
+        </div>
+        <div class="data_pasien">
+            <ul>
+                <li>Nama :<?= $kasus["nama_pasien"] ?></li>
+                <li>Umur :<?= $kasus["umur_pasien"] ?> </li>
+                <li>Alamat :<?= $kasus["alamat_pasien"] ?> </li>
+            </ul>
+        </div>
 
-    <!-- start banner website -->
-    <div class="banner">
-        <div class="tagline">
-            <p>Scan Dan Berikan <br> Senyuman Untuk Mereka</p>
-        </div>
-        <div class="ilus">
-            <img src="img/smile2.png" alt="">
-        </div>
     </div>
-    <!-- end banner website -->
-
-    <!-- start barcode -->
-    <div class="barcode">
-        <div class="qr">
-            <img src="img/qr.png" alt="" width="400px" height="400px">
-        </div>
-        <div class="bank">
-            <div class="join">
-                <button class="tmbljoint">METODE LAIN</button>
-            </div>
-            <div class="join">
-                <a href="https://kitabisa.com/"><button class="tmbljoint">kitabisa.com</button></a>
-            </div>
-        </div>
+    <div class="deskripsi">
+        <p><?= $kasus["deskripsi_kasus"] ?></p>
     </div>
-    <!-- end barcode -->
+    <div class="join">
+        <a href="donasi.php"><button class="tmbljoint">DONASI SEKARANG</button></a>
+    </div>
 
-    <!-- FOOTER -->
+
     <div class="foot">
         <div class="icon-logo">
             <img src="img/logo putih.png" alt="">

@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/donasi.css">
+    <link rel="stylesheet" href="css/contac.css">
     <link rel="icon" type="image/x-icon" href="img/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>DONASI | FullSenyum</title>
+    <title>CONTAC US | FullSenyum</title>
     <style>
         .tmbllgn {
             text-decoration: none;
@@ -31,13 +31,14 @@
         }
 
         @media screen and (max-width: 424px) {
+            .konten {
+                flex-direction: column;
+            }
 
-            .banner {
+            .foot {
+                flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                flex-direction: column-reverse;
-                margin-bottom: 20px;
-
             }
 
             .menu ul li {
@@ -51,41 +52,6 @@
                 background-color: #ededed;
             }
 
-            .ilus img {
-                display: flex;
-                width: 300px;
-                height: 300px;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .tagline {
-                font-size: 20px;
-            }
-
-            .barcode {
-                flex-direction: column;
-                margin-left: 0;
-                margin: 0;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .qr {
-                padding-left: 0;
-            }
-
-            .bank {
-                padding-right: 0;
-                margin-bottom: 20px;
-            }
-
-            .foot {
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-            }
-
             .alamat {
                 margin-top: 10px;
             }
@@ -97,6 +63,7 @@
             .sosmed {
                 margin-top: 10px;
             }
+
         }
     </style>
 </head>
@@ -121,10 +88,10 @@
                     <a class="nav-link" href="Kasus.php">Kasus</a>
                 </li>
                 <li class="nav-item d-flex justify-content-center">
-                    <a class="nav-link" href="#">Donasi</a>
+                    <a class="nav-link" href="donasi.php">Donasi</a>
                 </li>
                 <li class="nav-item d-flex justify-content-center">
-                    <a class="nav-link" href="contactus.php">Contact Us</a>
+                    <a class="nav-link" href="#">Contact Us</a>
                 </li>
             </ul>
             <button class="tmbllgn" type="submit">Login</button>
@@ -133,34 +100,56 @@
     </nav>
     <!-- end navbar menu navigasi -->
 
-    <!-- start banner website -->
-    <div class="banner">
-        <div class="tagline">
-            <p>Scan Dan Berikan <br> Senyuman Untuk Mereka</p>
-        </div>
-        <div class="ilus">
-            <img src="img/smile2.png" alt="">
-        </div>
-    </div>
-    <!-- end banner website -->
 
-    <!-- start barcode -->
-    <div class="barcode">
-        <div class="qr">
-            <img src="img/qr.png" alt="" width="400px" height="400px">
-        </div>
-        <div class="bank">
-            <div class="join">
-                <button class="tmbljoint">METODE LAIN</button>
-            </div>
-            <div class="join">
-                <a href="https://kitabisa.com/"><button class="tmbljoint">kitabisa.com</button></a>
+
+    <!-- start konten -->
+    <div class="konten">
+        <div class="kontak">
+            <h6>KONTAK KAMI</h6>
+            <h3>Ada Yang Bisa Kami Bantu ?</h3>
+            <p>Isi Form Di Samping Untuk Mengirimkan Pesan Ke Kami</p>
+            <div class="narahubung">
+                <ul>
+                    <li><img src="img/FACE.png" alt="">&nbsp&nbsp Fullsenyumindonesia</li>
+                    <li><img src="img/MAIL.png" alt="">&nbsp fullysmile@mail.com</li>
+                    <li><img src="img/INSTA.png" alt="">&nbsp FullSenyum.id</li>
+                    <li><img src="img/PHONE.png" alt="">&nbsp 62 8123 456</li>
+                </ul>
             </div>
         </div>
+        <div class="form">
+            <div class="kotak">
+                <form action="">
+                    <ul>
+                        <li>
+                            <label for="nama">Nama </label>
+                            <input type="text" class="form-control" size="50" name="nama">
+                        </li>
+                        <li>
+                            <label for="mail">Email</label>
+                            <input type="text" class="form-control" size="50" name="mail">
+                        </li>
+                        <li>
+                            <label for="sub">Subject</label>
+                            <input type="text" class="form-control" size="50" name="sub">
+                        </li>
+                        <li>
+                            <label for="pesan">Message</label>
+                            <textarea name="" class="form-control" id="" cols="30" rows="5"></textarea>
+                        </li>
+                    </ul>
+                    <div class="submit">
+                        <button type="submit" name="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <!-- end barcode -->
+    <!-- end konten -->
 
-    <!-- FOOTER -->
+
+
+    <!-- footer -->
     <div class="foot">
         <div class="icon-logo">
             <img src="img/logo putih.png" alt="">
@@ -171,10 +160,10 @@
         <div class="menu-foot">
             <h3>Main Menu</h3>
             <ul>
-                <li>Home</li>
+                <li>Beranda</li>
                 <li>Kasus</li>
                 <li>Donasi</li>
-                <li>Contact Us</li>
+                <li>Hubungi Kami</li>
             </ul>
         </div>
         <div class="sosmed">
@@ -191,4 +180,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
-</html>
+</html
