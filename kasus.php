@@ -23,34 +23,108 @@ if (isset($_POST["cari"])) {
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>KASUS | FullSenyum</title>
+    <style>
+        .tmbllgn {
+            text-decoration: none;
+            list-style: none;
+            border-style: none;
+            background-image: linear-gradient(to right, #00B4D8, #80eaff);
+            width: 95px;
+            height: 40px;
+            border-radius: 10px;
+            color: #fff;
+            font-family: 'poppins', sans-serif;
+            font-weight: 500;
+            font-size: 15px;
+            cursor: pointer;
+            margin-left: 110px;
+            margin-top: 50px;
+        }
+
+        @media screen and (max-width: 424px) {
+
+            .banner {
+                justify-content: center;
+                align-items: center;
+                flex-direction: column-reverse;
+                margin-bottom: 20px;
+
+            }
+
+            .menu ul li {
+                background-color: #fff;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .menu ul li:hover {
+                transition: 0.1s;
+                background-color: #ededed;
+            }
+
+            .ilus img {
+                display: flex;
+                width: 300px;
+                height: 300px;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .tagline {
+                font-size: 20px;
+            }
+
+            .foot {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .alamat {
+                margin-top: 10px;
+            }
+
+            .menu-foot {
+                margin-top: 10px;
+            }
+
+            .sosmed {
+                margin-top: 10px;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <!-- Navbar menu navigasi -->
-    <div class="navbar">
-        <div class="logo">
-            <img src="img/logo.png" alt="">
-        </div>
-        <div class="menu">
-            <ul>
-                <a href="index.php">
-                    <li>Home</li>
-                </a>
-                <a href="kasus.php">
-                    <li>Kasus</li>
-                </a>
-                <a href="donasi.php">
-                    <li>Donasi</li>
-                </a>
-                <a href="contactus.php">
-                    <li>Contact Us</li>
-                </a>
+    <nav class="navbar navbar-expand-lg navbar-light style=" background-color: #fff;">
+        <a class="navbar-brand" href="#">
+            <div class="logo">
+                <img src="img/logo.png" alt="">
+            </div>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="menu collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item d-flex justify-content-center">
+                    <a class="nav-link" href="index.php">Home</a>
+                </li>
+                <li class="nav-item d-flex justify-content-center">
+                    <a class="nav-link" href="#">Kasus</a>
+                </li>
+                <li class="nav-item d-flex justify-content-center">
+                    <a class="nav-link" href="donasi.php">Donasi</a>
+                </li>
+                <li class="nav-item d-flex justify-content-center">
+                    <a class="nav-link" href="contactus.php">Contact Us</a>
+                </li>
             </ul>
+            <button class="tmbllgn" type="submit">Login</button>
         </div>
-        <div class="lout">
-            <a href=""><img src="img/out.png" alt="" width="202px" height="60px"></a>
-        </div>
-    </div>
+
+    </nav>
     <!-- end navbar menu navigasi -->
 
 
@@ -70,7 +144,7 @@ if (isset($_POST["cari"])) {
     <!-- end banner website -->
 
     <!-- Daftar Kasus -->
-    <div class="container">
+    <div class="container mt-20">
         <form action="" method="post">
 
             <input type="text" size="20" name="search" autocomplete="off" autofocus id="keyword">
@@ -85,9 +159,13 @@ if (isset($_POST["cari"])) {
                         <div class="card-body">
                             <h5 class="card-title"><?= $data_kasus["nama_pasien"] ?></h5>
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <h6 class="card-title"><?= $data_kasus["umur_pasien"] ?></h6>
 =======
                             <h5 class="card-title"><?= $data_kasus["umur_pasien"] ?></h5>
+>>>>>>> 2004111010070
+=======
+                            <h6 class="card-title"><?= $data_kasus["umur_pasien"] ?></h6>
 >>>>>>> 2004111010070
                             <h6 class="card-title">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#00B4D8" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
@@ -138,6 +216,9 @@ if (isset($_POST["cari"])) {
             </ul>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>
