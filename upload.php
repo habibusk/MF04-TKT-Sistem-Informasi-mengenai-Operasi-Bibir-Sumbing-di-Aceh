@@ -1,3 +1,26 @@
+<?php
+//hubungkan function
+require 'function.php';
+
+//cek tombol submit apakah sudah ditekan
+if (isset($_POST["submit"])) {
+    //cek data berhasil di input
+    if (tambah_data($_POST) > 0) {
+        echo
+        "<script>
+                alert('Data Kasus Berhasil Di Tambahkan');
+                document.location.href = 'kasus.php';
+            </script> 
+            ";
+    } else {
+        echo "<script>
+        alert('Data Kasus GAGAL Ditambahkan !!!');
+    </script>";
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,13 +28,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/donasi.css">
+    <link rel="stylesheet" href="css/kasus.css">
     <link rel="icon" type="image/x-icon" href="img/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>DONASI | FullSenyum</title>
+    <title>UPLOAD KASUS | FullSenyum</title>
     <style>
         .tmbllgn {
             text-decoration: none;
@@ -32,12 +55,10 @@
 
         @media screen and (max-width: 424px) {
 
-            .banner {
+            .forminputan {
+                flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                flex-direction: column-reverse;
-                margin-bottom: 20px;
-
             }
 
             .menu ul li {
@@ -49,35 +70,6 @@
             .menu ul li:hover {
                 transition: 0.1s;
                 background-color: #ededed;
-            }
-
-            .ilus img {
-                display: flex;
-                width: 300px;
-                height: 300px;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .tagline {
-                font-size: 20px;
-            }
-
-            .barcode {
-                flex-direction: column;
-                margin-left: 0;
-                margin: 0;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .qr {
-                padding-left: 0;
-            }
-
-            .bank {
-                padding-right: 0;
-                margin-bottom: 20px;
             }
 
             .foot {
@@ -97,8 +89,18 @@
             .sosmed {
                 margin-top: 10px;
             }
+
+            .input-data {
+                margin: 10px;
+            }
+
+            .input-data input {
+                padding: 20px;
+
+            }
         }
     </style>
+
 </head>
 
 <body>
@@ -121,7 +123,7 @@
                     <a class="nav-link" href="Kasus.php">Kasus</a>
                 </li>
                 <li class="nav-item d-flex justify-content-center">
-                    <a class="nav-link" href="#">Donasi</a>
+                    <a class="nav-link" href="donasi.php">Donasi</a>
                 </li>
                 <li class="nav-item d-flex justify-content-center">
                     <a class="nav-link" href="contactus.php">Contact Us</a>
@@ -133,34 +135,49 @@
     </nav>
     <!-- end navbar menu navigasi -->
 
-    <!-- start banner website -->
-    <div class="banner">
-        <div class="tagline">
-            <p>Scan Dan Berikan <br> Senyuman Untuk Mereka</p>
-        </div>
-        <div class="ilus">
-            <img src="img/smile2.png" alt="">
-        </div>
-    </div>
-    <!-- end banner website -->
+    <!-- FORM UPLOAD -->
 
-    <!-- start barcode -->
-    <div class="barcode">
-        <div class="qr">
-            <img src="img/qr.png" alt="" width="400px" height="400px">
-        </div>
-        <div class="bank">
-            <div class="join">
-                <button class="tmbljoint">METODE LAIN</button>
-            </div>
-            <div class="join">
-                <a href="https://kitabisa.com/"><button class="tmbljoint">kitabisa.com</button></a>
-            </div>
-        </div>
-    </div>
-    <!-- end barcode -->
+    <form action="" method="post" enctype="multipart/form-data">
+        <div class="forminputan">
+            <div class="upfoto">
+                <div class="priview">
+                    <!-- <img id="output" height="150px" width="150px"> -->
+                </div>
+                <div class="input-gambar">
+<<<<<<< HEAD
+                    <input type="file" accept="image/*" onchange="readURL(this);" name="foto" require>
+=======
+                    <input type="file" class="form-control" accept="image/*" onchange="loadFile(event)" name="foto" require>
+>>>>>>> 2004111010070
 
-    <!-- FOOTER -->
+                </div>
+            </div>
+            <div class="input-data">
+                <ul>
+                    <li>
+                        <label for="nama">NAMA :</label><br>
+                        <input type="text " class="form-control" id="nama" name="nama" autocomplete="off" required>
+                    </li>
+                    <li>
+                        <label for="umur">UMUR :</label><br>
+                        <input type="text " class="form-control" id="umur" name="umur" autocomplete="off" required>
+                    </li>
+                    <li>
+                        <label for="alamat">ALAMAT :</label><br>
+                        <input type="text " class="form-control" id="alamat" name="alamat" autocomplete="off" required>
+                    </li>
+                    <li>
+                        <label for="deskripsi">Deskripsi :</label><br>
+                        <textarea name="deskripsi" class="form-control" id="deskripsi" cols="52" rows="5" required></textarea>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="submit">
+            <button type="submit" name="submit">KIRIM</button>
+        </div>
+    </form>
+
     <div class="foot">
         <div class="icon-logo">
             <img src="img/logo putih.png" alt="">
@@ -186,13 +203,23 @@
             </ul>
         </div>
     </div>
-<<<<<<< HEAD
-</body>
-=======
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#output')
+                        .attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
+
 </html>
->>>>>>> 2004111010070

@@ -1,16 +1,14 @@
-<<<<<<< HEAD
 <?php
-	if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
-		$uri = 'https://';
-	} else {
-		$uri = 'http://';
-	}
-	$uri .= $_SERVER['HTTP_HOST'];
-	header('Location: '.$uri.'/dashboard/');
-	exit;
+require 'function.php';
+
+$kasus = query("SELECT * FROM db_kasus");
+
+#cek apakah tombol cari ditekan
+if (isset($_POST["cari"])) {
+    $kasus = cari($_POST["search"]);
+}
 ?>
-Something is wrong with the XAMPP installation :-(
-=======
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,13 +16,13 @@ Something is wrong with the XAMPP installation :-(
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/kasus2.css">
     <link rel="icon" type="image/x-icon" href="img/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>HOME | FullSenyum</title>
+    <title>KASUS | FullSenyum</title>
     <style>
         .tmbllgn {
             text-decoration: none;
@@ -49,6 +47,8 @@ Something is wrong with the XAMPP installation :-(
                 justify-content: center;
                 align-items: center;
                 flex-direction: column-reverse;
+                margin-bottom: 20px;
+
             }
 
             .menu ul li {
@@ -74,20 +74,6 @@ Something is wrong with the XAMPP installation :-(
                 font-size: 20px;
             }
 
-            .testimoni {
-                flex-direction: column;
-                justify-content: center;
-                padding: 30px;
-            }
-
-            .testi {
-                margin-top: 20px;
-            }
-
-            .tagline h4 {
-                font-size: 8px;
-            }
-
             .foot {
                 flex-direction: column;
                 justify-content: center;
@@ -104,26 +90,6 @@ Something is wrong with the XAMPP installation :-(
 
             .sosmed {
                 margin-top: 10px;
-            }
-
-            .dok {
-                flex-direction: column;
-            }
-
-            .about {
-                flex-direction: column;
-                padding: 30px;
-            }
-
-            .foto {
-                width: 30px;
-                padding: 20px;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .tentang {
-                font-size: 12px;
             }
         }
     </style>
@@ -143,10 +109,10 @@ Something is wrong with the XAMPP installation :-(
         <div class="menu collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item d-flex justify-content-center">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="index.php">Home</a>
                 </li>
                 <li class="nav-item d-flex justify-content-center">
-                    <a class="nav-link" href="Kasus.php">Kasus</a>
+                    <a class="nav-link" href="#">Kasus</a>
                 </li>
                 <li class="nav-item d-flex justify-content-center">
                     <a class="nav-link" href="donasi.php">Donasi</a>
@@ -161,92 +127,70 @@ Something is wrong with the XAMPP installation :-(
     </nav>
     <!-- end navbar menu navigasi -->
 
+
+
     <!-- start banner website -->
     <div class="banner">
         <div class="tagline">
-            <p>Jadikan Senyum Mereka <br> Menjadi lebih indah</p>
-            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Asperiores perferendis amet facilis at, rem et,
-                consequatur doloremque nisi ullam, sed eaque placeat
-                excepturi qui nemo ex! Labore quos officia amet?</h4>
+            <p>Temukan Dan Berikan <br> Senyuman Untuk Mereka</p>
             <div class="join">
-                <button class="tmbljoint">JOIN SEKARANG</button>
+                <a href="upload.php"><button class="tmbljoint">UPLOAD SEKARANG</button></a>
             </div>
         </div>
         <div class="ilus">
-            <img src="img/smile.png" alt="">
+            <img src="img/Smile 3.png" alt="">
         </div>
     </div>
     <!-- end banner website -->
 
-    <!-- start about us -->
-    <div class="about">
-        <div class="foto">
-            <img src="img/Group 2.png" alt="">
-        </div>
-        <div class="tentang">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam repellat obcaecati accusamus,
-                dolorem qui fuga velit quisquam sunt ex, doloremque ratione,
-                labore sed cumque enim aliquam aperiam quis incidunt ab! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam repellat obcaecati accusamus,
-                dolorem qui fuga velit quisquam sunt ex, doloremque ratione,
-                labore sed cumque enim aliquam aperiam quis incidunt ab! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam repellat obcaecati accusamus,
-                dolorem qui fuga velit quisquam sunt ex, doloremque ratione,
-                labore sed cumque enim aliquam aperiam quis incidunt ab!
-            </p>
-            <div class="join">
-                <button class="tmbljoint">JOIN SEKARANG</button>
-            </div>
+    <!-- Daftar Kasus -->
+    <div class="container mt-20">
+        <form action="" method="post">
+
+            <input type="text" size="20" name="search" autocomplete="off" autofocus id="keyword">
+            <button type="submit" class="btn btn-primary" name="cari" id="tombolcari">search</button>
+
+        </form>
+        <div class="row" style="margin: 20px;">
+            <?php foreach ($kasus as $data_kasus) : ?>
+                <div class="col-md-3">
+                    <div class="card mt-4">
+                        <img src="img/gambarkasus/<?= $data_kasus["foto_pasien"] ?>" class="img-thumbnail mx-auto" alt="" height="230">
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $data_kasus["nama_pasien"] ?></h5>
+<<<<<<< HEAD
+<<<<<<< HEAD
+                            <h6 class="card-title"><?= $data_kasus["umur_pasien"] ?></h6>
+=======
+                            <h5 class="card-title"><?= $data_kasus["umur_pasien"] ?></h5>
+>>>>>>> 2004111010070
+=======
+                            <h6 class="card-title"><?= $data_kasus["umur_pasien"] ?></h6>
+>>>>>>> 2004111010070
+                            <h6 class="card-title">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#00B4D8" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                                </svg>
+                                <?= $data_kasus["alamat_pasien"] ?>
+
+                            </h6>
+<<<<<<< HEAD
+
+=======
+                            <!-- <p class="card-text" style="overflow: hidden; white-space:nowrap; text-overflow:ellipsis;">
+                                <?= $data_kasus["deskripsi_kasus"] ?>
+                            </p> -->
+>>>>>>> 2004111010070
+                            <a href="detail_pasien.php?id_kasus=<?= $data_kasus["id_kasus"]; ?>" class="btn btn-primary">Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
         </div>
     </div>
-    <div class="dokumentasi">
-        <h2>DOKUMENTASI</h2>
-        <div class="dok">
-            <img src="img/image 3.png" alt="">
-            <img src="img/image 4.png" alt="">
-            <img src="img/image 6.png" alt="">
-        </div>
-        <div class="join">
-            <button class="tmbljoint">LEBIH BANYAK</button>
-        </div>
-    </div>
+    <!-- end Daftar Kasus -->
 
-    <div class="testimoni">
-
-        <div class="testi">
-            <div class="profil">
-                <img src="img/logo.png" alt="">
-            </div>
-            <div class="nama">
-                <p>Nama</p>
-            </div>
-            <div class="komentar">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore harum nulla vel molestiae repellendus? Repudiandae est eveniet assumenda minima odit earum soluta maiores dolore excepturi, praesentium quae in possimus veniam!</p>
-            </div>
-        </div>
-        <div class="testi">
-            <div class="profil">
-                <img src="img/logo.png" alt="">
-            </div>
-            <div class="nama">
-                <p>Nama</p>
-            </div>
-            <div class="komentar">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore harum nulla vel molestiae repellendus? Repudiandae est eveniet assumenda minima odit earum soluta maiores dolore excepturi, praesentium quae in possimus veniam!</p>
-            </div>
-        </div>
-        <div class="testi">
-            <div class="profil">
-                <img src="img/logo.png" alt="">
-            </div>
-            <div class="nama">
-                <p>Nama</p>
-            </div>
-            <div class="komentar">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore harum nulla vel molestiae repellendus? Repudiandae est eveniet assumenda minima odit earum soluta maiores dolore excepturi, praesentium quae in possimus veniam!</p>
-            </div>
-        </div>
-    </div>
-
+    <!-- FOOTER -->
     <div class="foot">
         <div class="icon-logo">
             <img src="img/logo putih.png" alt="">
@@ -278,4 +222,3 @@ Something is wrong with the XAMPP installation :-(
 </body>
 
 </html>
->>>>>>> 2004111010070
