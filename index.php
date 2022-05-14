@@ -206,7 +206,7 @@ Something is wrong with the XAMPP installation :-(
             <img src="img/image 6.png" alt="">
         </div>
         <div class="join">
-            <button class="tmbljoint">LEBIH BANYAK</button>
+            <a href="dokumentasi.php"><button class="tmbljoint">LEBIH BANYAK</button></a>
         </div>
     </div>
 
