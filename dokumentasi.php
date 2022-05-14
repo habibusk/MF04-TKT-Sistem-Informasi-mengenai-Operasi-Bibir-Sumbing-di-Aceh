@@ -1,3 +1,10 @@
+<?php
+
+require 'function.php';
+
+$dokumentasi = query("SELECT * FROM db_dokumentasi");
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -137,9 +144,9 @@
             <?php foreach ($dokumentasi as $foto) : ?>
                 <div class="col-md-3">
                     <div class="card mt-4">
-                        <img src="img/" class="img-thumbnail mx-auto" alt="" height="230">
+                        <img src="img/<?= $foto["nama_foto"] ?>" class="img-thumbnail mx-auto" alt="" height="230">
                         <div class="card-body">
-                            <h5 class="card-title">></h5>
+                            <h5 class="card-title"><?= $foto["title_foto"] ?></h5>
                             <!-- Button trigger modal -->
                             <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 selengkapnya
@@ -226,5 +233,7 @@
         });
     </script>
 </body>
+
+>>>>>>> Stashed changes
 
 </html>
