@@ -144,7 +144,11 @@ if (isset($_POST["submit"])) {
                     <!-- <img id="output" height="150px" width="150px"> -->
                 </div>
                 <div class="input-gambar">
+<<<<<<< HEAD
+                    <input type="file" accept="image/*" onchange="readURL(this);" name="foto" require>
+=======
                     <input type="file" class="form-control" accept="image/*" onchange="loadFile(event)" name="foto" require>
+>>>>>>> 2004111010070
 
                 </div>
             </div>
@@ -200,10 +204,17 @@ if (isset($_POST["submit"])) {
         </div>
     </div>
     <script>
-        var loadFile = function(event) {
-            var output = document.getElementById('output');
-            output.src = URL.createObjectURL(event.target.file[0]);
-        };
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#output')
+                        .attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
     </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
