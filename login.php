@@ -35,7 +35,7 @@
         </label>
       </div>
       <button class="tombol" name="submit" type="submit">Login</button>
-      <p class="bawah mt-5 mb-3 text-center">Belum Memiliki Akun? <a href=""> Daftar</a></p>
+      <p class="bawah mt-3 mb-3 text-center">Belum Memiliki Akun? <a href=""> Daftar</a></p>
     </form>
   </body>
 </html>

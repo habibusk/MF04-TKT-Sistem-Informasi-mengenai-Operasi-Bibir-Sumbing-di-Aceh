@@ -1,10 +1,3 @@
-<?php
-
-require 'function.php';
-
-$dokumentasi = query("SELECT * FROM db_dokumentasi");
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,13 +6,13 @@ $dokumentasi = query("SELECT * FROM db_dokumentasi");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/kasus2.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/x-icon" href="img/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>DOKUMENTASI | FullSenyum</title>
+    <title>TENTANG KAMI | FullSenyum</title>
     <style>
         .tmbllgn {
             text-decoration: none;
@@ -36,16 +29,41 @@ $dokumentasi = query("SELECT * FROM db_dokumentasi");
             cursor: pointer;
             margin-left: 110px;
             margin-top: 50px;
-        }
 
+        }
+        .ilus img{
+          width:500px;
+          padding-right:70px;  
+        }
+        .dokumentasi{
+           
+
+        }
+        .deskripsi{
+            margin:40px;
+            padding:30px;
+        }
+        .judulnya{
+            font-family:'poppins',sans-serif;
+            font-weight: 400;
+            color:#0099B8;
+        }
+        .paragraf{
+            color:#c4c4c4;
+            font-size:18px;
+        }
+        .parag2{
+            display:flex;
+            padding:20px;
+            color:#c4c4c4;
+            font-size: 18px;
+        }
         @media screen and (max-width: 424px) {
 
             .banner {
                 justify-content: center;
                 align-items: center;
                 flex-direction: column-reverse;
-                margin-bottom: 20px;
-
             }
 
             .menu ul li {
@@ -65,11 +83,24 @@ $dokumentasi = query("SELECT * FROM db_dokumentasi");
                 height: 300px;
                 justify-content: center;
                 align-items: center;
-                margin-left: 70px;
             }
 
             .tagline {
                 font-size: 20px;
+            }
+
+            .testimoni {
+                flex-direction: column;
+                justify-content: center;
+                padding: 30px;
+            }
+
+            .testi {
+                margin-top: 20px;
+            }
+
+            .tagline h4 {
+                font-size: 8px;
             }
 
             .foot {
@@ -89,6 +120,26 @@ $dokumentasi = query("SELECT * FROM db_dokumentasi");
             .sosmed {
                 margin-top: 10px;
             }
+
+            .dok {
+                flex-direction: column;
+            }
+
+            .about {
+                flex-direction: column;
+                padding: 30px;
+            }
+
+            .foto {
+                width: 30px;
+                padding: 20px;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .tentang {
+                font-size: 12px;
+            }
         }
     </style>
 </head>
@@ -107,10 +158,10 @@ $dokumentasi = query("SELECT * FROM db_dokumentasi");
         <div class="menu collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item d-flex justify-content-center">
-                    <a class="nav-link" href="index.php">Home</a>
+                    <a class="nav-link" href="#">Home</a>
                 </li>
                 <li class="nav-item d-flex justify-content-center">
-                    <a class="nav-link" href="#">Kasus</a>
+                    <a class="nav-link" href="Kasus.php">Kasus</a>
                 </li>
                 <li class="nav-item d-flex justify-content-center">
                     <a class="nav-link" href="donasi.php">Donasi</a>
@@ -125,66 +176,55 @@ $dokumentasi = query("SELECT * FROM db_dokumentasi");
     </nav>
     <!-- end navbar menu navigasi -->
 
-
-
     <!-- start banner website -->
     <div class="banner">
         <div class="tagline">
-            <p>Bagikan Setiap Cerita <br> Dan Senyuman Untuk Mereka</p>
+            <p>APA ITU <br><img src="img/logo2.png" alt=""></p> 
         </div>
         <div class="ilus">
-            <img src="img/photo.png" alt="" width="400px" style="margin-right: 70px ;">
+            <img src="img/charity.png" alt="">
         </div>
     </div>
-    <!-- end banner website -->
 
-    <!-- Daftar Kasus -->
-    <div class="container mt-20">
-        <div class="row" style="margin: 20px;">
-            <?php foreach ($dokumentasi as $foto) : ?>
-                <div class="col-md-3">
-                    <div class="card mt-4">
-                        <img src="img/<?= $foto["nama_foto"] ?>" class="img-thumbnail mx-auto" alt="" height="230">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $foto["title_foto"] ?></h5>
-                            <!-- Button trigger modal -->
-                            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                selengkapnya
-                            </button> -->
-                            <a class="btn btn-primary" id="tombolLihat" data-toggle="modal" data-target="#lihatmodal" data-id="<?= $foto["id_foto"] ?>" data-nama="<?= $foto["nama_foto"] ?>" data-title="<?= $foto["title_foto"] ?>" data-desc="<?= $foto["desc_foto"] ?>">Lihat</a>
-                        </div>
 
-                    </div>
-                </div>
-            <?php endforeach; ?>
+    <!-- start about us -->
+    <div class="deskripsi">
+        <div class="judulnya">
+            <h4><i>Deskripsi</i></h4>
         </div>
-    </div>
-    <!-- end Daftar Kasus -->
-
-    <!-- Modal -->
-    <div class="modal fade" id="lihatmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="exampleModalLabel"></button>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <img src="img/" class="img-thumbnail mx-auto" alt="" height="230" id="file_foto">
-                    <div id="gambar">
-
-                    </div>
-                    <div>
-                        <h5 class="modal-title" id="title_foto" name="title_foto" da></h5>
-                        <p id="desc_foto"></p>
-                    </div>
-                </div>
+        <div class="paragraf">
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda veritatis nam ratione unde, facere fugiat tenetur magni iusto illo, hic, temporibus tempora totam. Laboriosam pariatur, consectetur iusto libero dolore neque.
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda veritatis nam ratione unde, facere fugiat tenetur magni iusto illo, hic, temporibus tempora totam. Laboriosam pariatur, consectetur iusto libero dolore neque.
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda veritatis nam ratione unde, facere fugiat tenetur magni iusto illo, hic, temporibus tempora totam. Laboriosam pariatur, consectetur iusto libero dolore neque.
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda veritatis nam ratione unde, facere fugiat tenetur magni iusto illo, hic, temporibus tempora totam. Laboriosam pariatur, consectetur iusto libero dolore neque.
+            </p>
+        </div>
+        <div class="parag2">
+            <div class="ft_tentang">
+                <img src="img/ilus_tentang.png" alt="" width="300px">
+            </div>
+            <div class="desc">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita odit qui in nam iste laudantium praesentium tenetur nisi sequi facilis sint deserunt eius voluptates quas quam ex, officiis, ullam assumenda!</p>
             </div>
         </div>
     </div>
-    <!-- FOOTER -->
+
+    <div class="dokumentasi">
+        <h2><i>Dokumentasi<i></h2>
+        <div class="dok">
+            <img src="img/image 3.png" alt="">
+            <img src="img/image 4.png" alt="">
+            <img src="img/image 6.png" alt="">
+        </div>
+        
+    </div>
+
+    <div class="testimoni">
+
+        
+    </div>
+
     <div class="foot">
         <div class="icon-logo">
             <img src="img/logo putih.png" alt="">
@@ -210,30 +250,9 @@ $dokumentasi = query("SELECT * FROM db_dokumentasi");
             </ul>
         </div>
     </div>
-
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script>
-        $(document).on("click", "#tombolLihat", function() {
-            var id = $(this).data('id');
-            var foto = $(this).data('nama');
-            var title = $(this).data('title');
-            var desc = $(this).data('desc');
-            var str = "img/"
-            $(".modal-body #title_foto").html(title);
-            $(".modal-body #desc_foto").html(desc);
-            $(".modal-body #file_foto").attr("src", str + foto);
-
-
-
-
-        });
-    </script>
 </body>
-
->>>>>>> Stashed changes
 
 </html>
