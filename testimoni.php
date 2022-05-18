@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/contactus.css">
+    <link rel="stylesheet" href="css/testimoni.css">
     <link rel="icon" type="image/x-icon" href="img/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,7 +65,7 @@
     <title>HOME | FullSenyum</title>
     <title>HOME | FullSenyum</title>
 
-    <title>CONTAC US | FullSenyum</title>
+    <title>CONTACT US | FullSenyum</title>
 
 
     <title>CONTAC US | FullSenyum</title>
@@ -80,9 +80,8 @@
     <!-- start konten -->
     <div class="konten">
         <div class="kontak">
-            <h6>KONTAK KAMI</h6>
-            <h3>Ada Yang Bisa Kami Bantu ?</h3>
-            <p>Isi Form Di Samping Untuk Mengirimkan Pesan Ke Kami</p>
+            <h6>Bagaimana Pengalaman Anda Menggunakan Website ini? </h6>
+            <h3>Tuliskan Testimoni Anda </h3>
             <div class="narahubung">
                 <ul>
                     <li><img src="img/FACE.png" alt="">&nbsp&nbsp Fullsenyumindonesia</li>
@@ -105,11 +104,7 @@
                             <input type="text" class="form-control" size="50" name="mail">
                         </li>
                         <li>
-                            <label for="sub">Subject</label>
-                            <input type="text" class="form-control" size="50" name="sub">
-                        </li>
-                        <li>
-                            <label for="pesan">Message</label>
+                            <label for="pesan">Testimoni</label>
                             <textarea name="" class="form-control" id="" cols="30" rows="5"></textarea>
                         </li>
                     </ul>

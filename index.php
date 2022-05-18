@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+<?php
+	if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
+		$uri = 'https://';
+	} else {
+		$uri = 'http://';
+	}
+	$uri .= $_SERVER['HTTP_HOST'];
+	header('Location: '.$uri.'/dashboard/');
+	exit;
+?>
+Something is wrong with the XAMPP installation :-(
+=======
 <!DOCTYPE html>
 <html lang="en">
 
@@ -139,10 +152,10 @@
         <div class="menu-foot">
             <h3>Main Menu</h3>
             <ul>
-                <li>Beranda</li>
+                <li>Home</li>
                 <li>Kasus</li>
                 <li>Donasi</li>
-                <li>Hubungi Kami</li>
+                <li>Contact Us</li>
             </ul>
         </div>
         <div class="sosmed">
@@ -157,3 +170,4 @@
 </body>
 
 </html>
+>>>>>>> 2004111010070

@@ -75,5 +75,16 @@ function upload()
     $nama_file_baru .= $extensi_gambar;
     move_uploaded_file($tmpName, 'img/gambarkasus/' . $nama_file_baru);
 
-    return $nama_file;
+    return $nama_file_baru;
+}
+
+function cari($search)
+{
+    $query = "SELECT * FROM db_kasus 
+            WHERE nama_pasien LIKE '%$search%' 
+
+            
+            ";
+
+    return query($query);
 }
