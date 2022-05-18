@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 html,
 body {
@@ -176,3 +177,201 @@ body {
 
 >>>>>>> Stashed changes
 }
+=======
+/* HTML Setting */
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    overflow-x: hidden;
+    background-color: #ECFAFF;
+}
+
+/* NAVBAR STYLE */
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    background-color: #fff;
+}
+.logo{
+    width: 81px;
+    height: 81px;
+    align-items: left;
+    padding-left: 15px;
+}
+.menu ul{
+    text-decoration: none;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-left: -40px;
+    font-family: 'poppins', sans-serif;
+    font-weight: 500;
+    color: #0099B8;
+}
+.menu li{
+    padding-right: 90px;
+}
+.menu  a{
+    text-decoration: none;
+    color:  #0099B8;
+}
+.lout{
+
+    padding: 15px;
+}
+
+/* END NAVBAR STYLE */
+
+/* BANNER */
+.banner{
+    background-color:#fff;
+    display: flex;
+
+    justify-content: space-between;
+
+}
+.ilus{
+    align-items: center;
+    justify-content: center;
+    
+}
+.tagline{
+    display: flex;
+    margin-left: 10%;
+    justify-content: center;
+    padding-left: 10px;
+    font-size: 40px;
+    font-family: 'poppins', sans-serif;
+    font-weight: 800;
+    color: #0099B8;
+    flex-direction: column;
+}
+.tagline h4{
+    font-size: 14px;
+    font-weight: 500;
+    width: 59%;
+    color: #C4C4C4;
+}
+.tmbljoint{
+    text-decoration: none;
+    list-style: none;
+    border-style: none;
+    background-image: linear-gradient(to right, #00B4D8, #80eaff);
+    width: 202px;
+    height: 60px;
+    border-radius: 24px;
+    color: #fff;
+    font-family: 'poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+/* END BANNER */
+
+/* START ABOUT */
+.about{
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #ECFAFF;
+}
+.foto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-left: 177px;
+}
+.tentang{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-family: 'poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #C4C4C4;
+    flex-direction: column;
+}
+/* END ABOUT */
+
+/* START DOKUMENTASI */
+.dokumentasi{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    font-family: 'poppins', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    color: #0099B8;
+    background-color: #ECFAFF;
+}
+.dok{
+    display: flex;
+    justify-content: space-between;
+    padding: 35px;
+    margin: 10px;
+
+}
+.testimoni{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #ECFAFF;
+    padding: 50px;
+}
+.testi{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 351px;
+    height: 324px;
+    background-color: #fff;
+    border-radius: 24px;
+    text-align: center;
+    font-family: 'poppins', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    box-shadow: 0px 1px 52px -21px rgba(0, 0, 0, 0.25);
+}
+
+.foot{
+    background-color: #0099B8;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 60px;
+    border-radius: 30px 30px 0px 0px;
+}
+.alamat{
+    color: #A9D5FB;
+}
+.menu-foot{
+    color: #A9D5FB;
+    font-family: 'poppins', sans-serif; 
+}
+.menu-foot ul{
+    color: #A9D5FB;
+    list-style: none;
+}
+.sosmed{
+    color: #A9D5FB;
+}
+.sosmed ul{
+    color: #A9D5FB;
+    list-style: none;
+    line-height: 30px;
+}
+
+
+>>>>>>> 1904111010006
