@@ -50,8 +50,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/contactus.css">
-    <link rel="stylesheet" href="css/contactus.css">
+    <link rel="stylesheet" href="css/testimoni.css">
+    <link rel="stylesheet" href="css/testimoni.css">
 
     <link rel="stylesheet" href="css/contac.css">
     <link rel="stylesheet" href="css/contac.css">
@@ -68,8 +68,8 @@
     <title>CONTACT US | FullSenyum</title>
 
 
-    <title>CONTAC US | FullSenyum</title>
-    <title>CONTAC US | FullSenyum</title>
+    <title>CONTACT US | FullSenyum</title>
+    <title>CONTACT US | FullSenyum</title>
 </head>
 
 <body>
@@ -80,15 +80,10 @@
     <!-- start konten -->
     <div class="konten">
         <div class="kontak">
-            <h6>Bagaimana Pengalaman Anda Menggunakan Website ini? </h6>
+            <h6>Bagaimana Pengalaman Anda Menggunakan Website ini?</h6>
             <h3>Tuliskan Testimoni Anda </h3>
             <div class="narahubung">
-                <ul>
-                    <li><img src="img/FACE.png" alt="">&nbsp&nbsp Fullsenyumindonesia</li>
-                    <li><img src="img/MAIL.png" alt="">&nbsp fullysmile@mail.com</li>
-                    <li><img src="img/INSTA.png" alt="">&nbsp FullSenyum.id</li>
-                    <li><img src="img/PHONE.png" alt="">&nbsp 62 8123 456</li>
-                </ul>
+                <img src="img/testi.jpg" alt="" >
             </div>
         </div>
         <div class="form">
