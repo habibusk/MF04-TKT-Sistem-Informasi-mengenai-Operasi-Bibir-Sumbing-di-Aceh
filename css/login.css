@@ -42,7 +42,10 @@ body {
 }
 .lupa{
   font-family: 'poppins', sans-serif;
-  text-align: right;
+<<<<<<< Updated upstream
+  text-align: left;
+=======
+>>>>>>> Stashed changes
   font-weight: 400;
   font-size: 12px;
 
@@ -51,10 +54,12 @@ body {
 .lupa a{
   text-decoration: none;
   color: gray;
+  
 }
 .lupa a:hover{
   transition: 0.1s;
   color: #00B4D8;
+
 }
 .tombol{
   height: 50px;
