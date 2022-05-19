@@ -53,7 +53,6 @@ body{
 .banner{
     background-color:#fff;
     display: flex;
-
     justify-content: space-between;
 
 }
@@ -94,6 +93,7 @@ body{
     cursor: pointer;
     margin-top: 10px;
 }
+
 /* END BANNER */
 
 /* START ABOUT */
@@ -192,5 +192,10 @@ body{
     list-style: none;
     line-height: 30px;
 }
+
+
+
+/* responsive element */
+/* media smartphone*/
 
 
