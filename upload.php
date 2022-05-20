@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION["login"])) {
+    header("location: login.php");
+    exit;
+}
 //hubungkan function
 require 'function.php';
 
@@ -129,7 +134,7 @@ if (isset($_POST["submit"])) {
                     <a class="nav-link" href="contactus.php">Contact Us</a>
                 </li>
             </ul>
-            <button class="tmbllgn" type="submit">Login</button>
+            <a href="logout.php"><button type="button" id="tombol" class="tmbllgn" type="submit" value="Login">Logout</button></a>
         </div>
 
     </nav>
@@ -144,11 +149,9 @@ if (isset($_POST["submit"])) {
                     <!-- <img id="output" height="150px" width="150px"> -->
                 </div>
                 <div class="input-gambar">
-<<<<<<< HEAD
-                    <input type="file" accept="image/*" onchange="readURL(this);" name="foto" require>
-=======
+                    <!-- <input type="file" accept="image/*" onchange="readURL(this);" name="foto" require> -->
                     <input type="file" class="form-control" accept="image/*" onchange="loadFile(event)" name="foto" require>
->>>>>>> 2004111010070
+
 
                 </div>
             </div>

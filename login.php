@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 if (isset($_SESSION["login"])) {
   header("Location: index.php");
   exit;
@@ -15,9 +16,8 @@ if (isset($_POST["masuk"])) {
     $row = mysqli_fetch_assoc($hasil);
 
     if (password_verify($password, $row["password"])) {
-
+      $_SESSION["username"] = $username;
       $_SESSION["login"] = true;
-
       header("Location: index.php");
       exit;
     }
@@ -25,6 +25,7 @@ if (isset($_POST["masuk"])) {
   $error = true;
 }
 ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -65,17 +66,17 @@ if (isset($_POST["masuk"])) {
       <div class="liat">
         <input type="checkbox" class="mt-2" onclick="myfunction()"> Lihat Password
       </div>
-<<<<<<< Updated upstream
-      <button class="tombol" name="submit" type="submit">Login</button>
-      <p class="bawah mt-3 mb-3 text-center">Belum Memiliki Akun? <a href=""> Daftar</a></p>
-    </form>
-  </body>
-=======
-    </div>
+
+      <button type="submit" name="masuk" class="tombol">Login</button>
+      <p class="bawah mt-5 mb-3 text-center">Belum Memiliki Akun? <a href="register.php"> Daftar</a></p>
+      <p class="bawah mt-1 mb-3 text-center">Login Ke Dashboard Khusus Admin <a href="login_dasboard.php" style="color: red;"> Di sini!</a></p>
+  </form>
 
 
-    <button type="submit" name="masuk" class="tombol">Login</button>
-    <p class="bawah mt-5 mb-3 text-center">Belum Memiliki Akun? <a href="register.php"> Daftar</a></p>
+
+
+
+
 
   </form>
   <script>
@@ -90,5 +91,5 @@ if (isset($_POST["masuk"])) {
   </script>
 </body>
 
->>>>>>> Stashed changes
+
 </html>

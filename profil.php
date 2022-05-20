@@ -15,13 +15,13 @@ if (isset($_POST["kirim"])) {
     if (tambah_testi($_POST) > 0) {
         echo
         "<script>
-                alert('Dokumentasi Berhasil Di Tambahkan');
+                alert('Testimoni Berhasil Di Tambahkan');
                 
             </script> 
             ";
     } else {
         echo "<script>
-        alert('Data Kasus GAGAL Ditambahkan !!!');
+        alert('Testimoni GAGAL Ditambahkan !!!');
     </script>";
     }
 }

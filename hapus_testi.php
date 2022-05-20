@@ -18,6 +18,6 @@ if (hapus_testi($id_testi) > 0) {
 } else {
     echo "<script>
         alert('Gagal Menghapus Data Testimoni');
-        document.location.href = 'dasb_testimoni.php';
+        document.location.href = 'desb_testimoni.php';
         </script>";
 }

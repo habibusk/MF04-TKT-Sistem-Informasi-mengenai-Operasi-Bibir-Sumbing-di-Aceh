@@ -1,16 +1,29 @@
-<<<<<<< HEAD
 <?php
-	if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
-		$uri = 'https://';
-	} else {
-		$uri = 'http://';
-	}
-	$uri .= $_SERVER['HTTP_HOST'];
-	header('Location: '.$uri.'/dashboard/');
-	exit;
+session_start();
+if (isset($_SESSION["masuk"])) {
+    header("location: dasb_index.php");
+}
 ?>
-Something is wrong with the XAMPP installation :-(
-=======
+<?php
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
+error_reporting(0);
+require 'function.php';
+
+$nama = $_SESSION["username"];
+
+$data = query("SELECT t.id_testi,
+                u.username,
+                u.id_user,
+                u.foto_user,
+                t.komen
+                FROM db_testi t, db_user u
+                WHERE t.id_user = u.id_user");
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,11 +52,28 @@ Something is wrong with the XAMPP installation :-(
             font-weight: 500;
             font-size: 15px;
             cursor: pointer;
-            margin-left: 110px;
-            margin-top: 50px;
+            margin-left: 50px;
+            margin-top: 30px;
+        }
+
+        .profil {
+            margin-left: 10px;
+            margin-top: 30px;
+            margin-right: 20px;
+        }
+
+        .lagi {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
         }
 
         @media screen and (max-width: 424px) {
+            .profil {
+                margin-left: 90px;
+                margin-top: 0px;
+            }
 
             .banner {
                 justify-content: center;
@@ -155,8 +185,41 @@ Something is wrong with the XAMPP installation :-(
                     <a class="nav-link" href="contactus.php">Contact Us</a>
                 </li>
             </ul>
-            <button class="tmbllgn" type="submit">Login</button>
-        </div>
+
+            <div class="profil dropdown">
+                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <?= $_SESSION["username"];
+                    error_reporting(0);
+                    ?>
+
+                </button>
+                <div class="dropdown-menu mx-auto" aria-labelledby="dropdownMenuButton">
+                    <?php
+                    if (!isset($_SESSION["login"])) {
+                        echo '<a class="dropdown-item" href="register.php">Daftar</a>';
+                        error_reporting(0);
+                    } else {
+                    ?>
+
+                        <a class="dropdown-item" href="profil.php?username=<?= $_SESSION["username"]; ?>">
+                            Profil
+                        </a>
+                    <?php
+
+                    }
+
+                    ?>
+
+                    <?php
+                    if (!isset($_SESSION["login"])) {
+                        echo '<a class="dropdown-item" href="login.php">Masuk</a>';
+                    } else {
+                        echo '<a class="dropdown-item" href="logout.php">Logout</a>';
+                    }
+                    ?>
+                </div>
+            </div>
+
 
     </nav>
     <!-- end navbar menu navigasi -->
@@ -170,7 +233,9 @@ Something is wrong with the XAMPP installation :-(
                 consequatur doloremque nisi ullam, sed eaque placeat
                 excepturi qui nemo ex! Labore quos officia amet?</h4>
             <div class="join">
-                <button class="tmbljoint">JOIN SEKARANG</button>
+                <a href="login.php">
+                    <button class="tmbljoint">JOIN SEKARANG</button>
+                </a>
             </div>
         </div>
         <div class="ilus">
@@ -194,7 +259,9 @@ Something is wrong with the XAMPP installation :-(
                 labore sed cumque enim aliquam aperiam quis incidunt ab!
             </p>
             <div class="join">
-                <button class="tmbljoint">JOIN SEKARANG</button>
+                <a href="aboutus.php">
+                    <button class="tmbljoint">SELENGKAPNYA</button>
+                </a>
             </div>
         </div>
     </div>
@@ -211,40 +278,28 @@ Something is wrong with the XAMPP installation :-(
     </div>
 
     <div class="testimoni">
+        <?php $i = 0; ?>
+        <?php foreach ($data as $data_testi) : ?>
+            <div class="testi">
 
-        <div class="testi">
-            <div class="profil">
-                <img src="img/logo.png" alt="">
+                <div class="profil">
+                    <img src="img/<?= $data_testi["foto_user"] ?>" alt="">
+                </div>
+                <div class="nama">
+                    <p><?= $data_testi["username"] ?></p>
+                </div>
+                <div class="komentar">
+                    <p><?= $data_testi["komen"] ?></p>
+                </div>
+
             </div>
-            <div class="nama">
-                <p>Nama</p>
-            </div>
-            <div class="komentar">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore harum nulla vel molestiae repellendus? Repudiandae est eveniet assumenda minima odit earum soluta maiores dolore excepturi, praesentium quae in possimus veniam!</p>
-            </div>
-        </div>
-        <div class="testi">
-            <div class="profil">
-                <img src="img/logo.png" alt="">
-            </div>
-            <div class="nama">
-                <p>Nama</p>
-            </div>
-            <div class="komentar">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore harum nulla vel molestiae repellendus? Repudiandae est eveniet assumenda minima odit earum soluta maiores dolore excepturi, praesentium quae in possimus veniam!</p>
-            </div>
-        </div>
-        <div class="testi">
-            <div class="profil">
-                <img src="img/logo.png" alt="">
-            </div>
-            <div class="nama">
-                <p>Nama</p>
-            </div>
-            <div class="komentar">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore harum nulla vel molestiae repellendus? Repudiandae est eveniet assumenda minima odit earum soluta maiores dolore excepturi, praesentium quae in possimus veniam!</p>
-            </div>
-        </div>
+            <?php if (++$i === 3) {
+                break;
+            } ?>
+        <?php endforeach; ?>
+    </div>
+    <div class="lagi">
+        <a href="testimoni.php"><button class="tmbljoint">LEBIH BANYAK</button></a>
     </div>
 
     <div class="foot">
@@ -275,7 +330,7 @@ Something is wrong with the XAMPP installation :-(
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
->>>>>>> 2004111010070

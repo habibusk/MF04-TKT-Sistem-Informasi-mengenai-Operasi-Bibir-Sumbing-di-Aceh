@@ -1,4 +1,13 @@
 <?php
+session_start();
+if (isset($_SESSION["masuk"])) {
+    header("location: dasb_index.php");
+    exit;
+}
+if (!isset($_SESSION["login"])) {
+    header("location: login.php");
+    exit;
+}
 require 'function.php';
 
 $kasus = query("SELECT * FROM db_kasus");
@@ -121,7 +130,7 @@ if (isset($_POST["cari"])) {
                     <a class="nav-link" href="contactus.php">Contact Us</a>
                 </li>
             </ul>
-            <button class="tmbllgn" type="submit">Login</button>
+            <a href="logout.php"><button type="button" id="tombol" class="tmbllgn" type="submit" value="Login">Logout</button></a>
         </div>
 
     </nav>
@@ -157,16 +166,8 @@ if (isset($_POST["cari"])) {
                     <div class="card mt-4">
                         <img src="img/gambarkasus/<?= $data_kasus["foto_pasien"] ?>" class="img-thumbnail mx-auto" alt="" height="230">
                         <div class="card-body">
-                            <h5 class="card-title"><?= $data_kasus["nama_pasien"] ?></h5>
-<<<<<<< HEAD
-<<<<<<< HEAD
+                            <h5 class="card_title"><?= $data_kasus["nama_pasien"] ?></h5>
                             <h6 class="card-title"><?= $data_kasus["umur_pasien"] ?></h6>
-=======
-                            <h5 class="card-title"><?= $data_kasus["umur_pasien"] ?></h5>
->>>>>>> 2004111010070
-=======
-                            <h6 class="card-title"><?= $data_kasus["umur_pasien"] ?></h6>
->>>>>>> 2004111010070
                             <h6 class="card-title">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#00B4D8" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
                                     <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
@@ -174,13 +175,7 @@ if (isset($_POST["cari"])) {
                                 <?= $data_kasus["alamat_pasien"] ?>
 
                             </h6>
-<<<<<<< HEAD
 
-=======
-                            <!-- <p class="card-text" style="overflow: hidden; white-space:nowrap; text-overflow:ellipsis;">
-                                <?= $data_kasus["deskripsi_kasus"] ?>
-                            </p> -->
->>>>>>> 2004111010070
                             <a href="detail_pasien.php?id_kasus=<?= $data_kasus["id_kasus"]; ?>" class="btn btn-primary">Selengkapnya</a>
                         </div>
                     </div>

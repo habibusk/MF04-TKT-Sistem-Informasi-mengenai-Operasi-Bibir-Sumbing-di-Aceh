@@ -1,5 +1,9 @@
 <?php
-
+session_start();
+if (!isset($_SESSION["login"])) {
+    header("location: login.php");
+    exit;
+}
 require 'function.php';
 
 $dokumentasi = query("SELECT * FROM db_dokumentasi");
@@ -119,7 +123,7 @@ $dokumentasi = query("SELECT * FROM db_dokumentasi");
                     <a class="nav-link" href="contactus.php">Contact Us</a>
                 </li>
             </ul>
-            <button class="tmbllgn" type="submit">Login</button>
+            <a href="logout.php"><button type="button" id="tombol" class="tmbllgn" type="submit" value="Login">Logout</button></a>
         </div>
 
     </nav>
@@ -144,7 +148,7 @@ $dokumentasi = query("SELECT * FROM db_dokumentasi");
             <?php foreach ($dokumentasi as $foto) : ?>
                 <div class="col-md-3">
                     <div class="card mt-4">
-                        <img src="img/<?= $foto["nama_foto"] ?>" class="img-thumbnail mx-auto" alt="" height="230">
+                        <img src="img/gambarkasus/<?= $foto["nama_foto"] ?>" class="img-thumbnail mx-auto" alt="" height="230">
                         <div class="card-body">
                             <h5 class="card-title"><?= $foto["title_foto"] ?></h5>
                             <!-- Button trigger modal -->
