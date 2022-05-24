@@ -5,6 +5,10 @@ if (isset($_SESSION["login"])) {
   header("Location: index.php");
   exit;
 }
+if (isset($_SESSION["masuk"])) {
+  header("Location: dasb_index.php");
+  exit;
+}
 
 require 'function.php';
 //cek tombol login apa sudah ditekan

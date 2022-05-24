@@ -9,7 +9,13 @@ if (isset($_SESSION["login"])) {
 }
 
 require 'function.php';
-$data = query("SELECT * FROM db_testi");
+
+$data = query("SELECT t.id_testi,
+                u.nama_user,
+                u.id_user,
+                t.komen
+                FROM db_testi t, db_user u
+                WHERE t.id_user = u.id_user");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,7 +82,7 @@ $data = query("SELECT * FROM db_testi");
                     <span>User Login</span></a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="#">
                     <i class="fas fa-solid fa-comment"></i>
                     <span>Testimoni</span></a>
@@ -142,12 +148,12 @@ $data = query("SELECT * FROM db_testi");
                     <!-- Page Heading -->
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Data</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Data Testimoni</h1>
                     </div>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                            <h6 class="m-0 font-weight-bold text-primary"></h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -157,6 +163,7 @@ $data = query("SELECT * FROM db_testi");
                                             <th>NO</th>
                                             <th>Id Testimoni</th>
                                             <th>Id User</th>
+                                            <th>Nama</th>
                                             <th>Komentar</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -169,6 +176,7 @@ $data = query("SELECT * FROM db_testi");
                                                 <td><?= $no; ?></td>
                                                 <td><?= $user["id_testi"] ?></td>
                                                 <td><?= $user["id_user"] ?></td>
+                                                <td><?= $user["nama_user"] ?></td>
                                                 <td><?= $user["komen"] ?></td>
                                                 <td>
                                                     <a href="hapus_testi.php?id_testi=<?= $user["id_testi"]; ?>" onclick="return confirm('Apakah Anda Yakin Menghapus Data Ini?')"><button class="btn btn-danger">Hapus</button></a>
@@ -182,6 +190,7 @@ $data = query("SELECT * FROM db_testi");
                                             <th>NO</th>
                                             <th>Id Testimoni</th>
                                             <th>Id User</th>
+                                            <th>Nama</th>
                                             <th>Komentar</th>
                                             <th>Aksi</th>
                                         </tr>

@@ -19,10 +19,17 @@ $html = '<!DOCTYPE html>
         tr:nth-child(event) {
             background-color: #ddd;
         }
+        .kop{
+            display: flex;
+            align-items: center;
+            margin-left:15%;
+        }
     </style>
 </head>
 <body>
-<h1>DATA OBAT TERBARU</h1>
+<img src="img/kop.png" alt="" class="kop">
+<h3>DATA KASUS TERBARU</h3>
+
 <table border="1px solid" cellpadding="10" cellspacing="0">
 <tr style="background-color: salmon;">
     <th>NO</th>

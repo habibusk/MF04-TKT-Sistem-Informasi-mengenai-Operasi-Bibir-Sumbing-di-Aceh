@@ -15,7 +15,7 @@ require 'function.php';
 $nama = $_SESSION["username"];
 
 $data = query("SELECT t.id_testi,
-                u.username,
+                u.nama_user,
                 u.id_user,
                 u.foto_user,
                 t.komen
@@ -223,9 +223,9 @@ $data = query("SELECT t.id_testi,
             <?php foreach ($data as $data_testi) : ?>
                 <div class="col-md-3">
                     <div class="card mt-4">
-                        <img src="img/<?= $data_testi["foto_user"] ?>" class="img-thumbnail mx-auto rounded-circle" alt="" width="81px">
+                        <img src="img/gambarkasus/<?= $data_testi["foto_user"] ?>" class="img-thumbnail mx-auto rounded-circle" alt="" width="81px">
                         <div class="card-body">
-                            <h5 class="card-title"><?= $data_testi["username"] ?></h5>
+                            <h5 class="card-title"><?= $data_testi["nama_user"] ?></h5>
                             <p class="mt-2"><?= $data_testi["komen"] ?></p>
                         </div>
 

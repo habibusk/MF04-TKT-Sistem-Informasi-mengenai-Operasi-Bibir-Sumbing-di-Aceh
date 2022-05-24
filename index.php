@@ -5,10 +5,7 @@ if (isset($_SESSION["masuk"])) {
 }
 ?>
 <?php
-if (!isset($_SESSION["login"])) {
-    header("Location: login.php");
-    exit;
-}
+
 error_reporting(0);
 require 'function.php';
 
@@ -71,7 +68,7 @@ $data = query("SELECT t.id_testi,
 
         @media screen and (max-width: 424px) {
             .profil {
-                margin-left: 90px;
+                margin-left: 20px;
                 margin-top: 0px;
             }
 

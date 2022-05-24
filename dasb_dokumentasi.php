@@ -3,10 +3,7 @@ session_start();
 if (!isset($_SESSION["masuk"])) {
     header("location: login_dasboard.php");
 }
-if (isset($_SESSION["login"])) {
-    header("location: dasb_index.php");
-    exit;
-}
+
 require 'function.php';
 
 $data_gambar = query("SELECT * FROM db_dokumentasi");
@@ -144,13 +141,13 @@ $data_gambar = query("SELECT * FROM db_dokumentasi");
                     <!-- Page Heading -->
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Data</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Data Dokumentasi</h1>
 
                     </div>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                            <h6 class="m-0 font-weight-bold text-primary"></h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">

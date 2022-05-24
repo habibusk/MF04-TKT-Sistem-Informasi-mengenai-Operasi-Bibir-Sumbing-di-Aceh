@@ -42,6 +42,7 @@ $dokumentasi = query("SELECT * FROM db_dokumentasi");
             margin-top: 50px;
         }
 
+
         @media screen and (max-width: 424px) {
 
             .banner {
@@ -114,7 +115,7 @@ $dokumentasi = query("SELECT * FROM db_dokumentasi");
                     <a class="nav-link" href="index.php">Home</a>
                 </li>
                 <li class="nav-item d-flex justify-content-center">
-                    <a class="nav-link" href="#">Kasus</a>
+                    <a class="nav-link" href="kasus.php">Kasus</a>
                 </li>
                 <li class="nav-item d-flex justify-content-center">
                     <a class="nav-link" href="donasi.php">Donasi</a>
@@ -226,7 +227,7 @@ $dokumentasi = query("SELECT * FROM db_dokumentasi");
             var foto = $(this).data('nama');
             var title = $(this).data('title');
             var desc = $(this).data('desc');
-            var str = "img/"
+            var str = "img/gambarkasus/"
             $(".modal-body #title_foto").html(title);
             $(".modal-body #desc_foto").html(desc);
             $(".modal-body #file_foto").attr("src", str + foto);
@@ -237,7 +238,5 @@ $dokumentasi = query("SELECT * FROM db_dokumentasi");
         });
     </script>
 </body>
-
->>>>>>> Stashed changes
 
 </html>

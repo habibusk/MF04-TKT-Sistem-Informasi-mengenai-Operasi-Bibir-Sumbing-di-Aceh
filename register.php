@@ -48,13 +48,21 @@ if (isset($_POST["submit"])) {
         </div>
         <h1 class="judul h3 mb-3 font-weight-normal">Full Senyum.id</h1>
 
-        <label for="nama_user" class="label sr-only">Nama</label>
-        <input type="text" name="nama_user" id="nama_user" class="form-control" placeholder="Tulis nama lengkap anda" required autofocus autocomplete="off">
+        <label for="username" class="label sr-only">Username </label>
+        <input type="text" name="username" id="username" class="form-control" placeholder="Tulis Username anda" required autofocus autocomplete="off">
+
+        <label for="nama_user" class="label sr-only">Nama </label>
+        <input type="text" name="nama_user" id="nama_user" class="form-control" placeholder="Tulis Nama Lengkap anda" required autofocus autocomplete="off">
 
         <input type="hidden" name="foto_profil" id="inputName" class="form-control" placeholder="" required autofocus value="logo.png">
 
         <label for="sebagai" class="label sr-only mt-3">Sebagai</label>
-        <input type="user" name="sebagai" id="sebagai" class="form-control" placeholder="Relawan / Pasien / Masyarakat" required autofocus autocomplete="off">
+        <!-- <input type="user" name="sebagai" id="sebagai" class="form-control" placeholder="Relawan / Pasien / Masyarakat" required autofocus autocomplete="off"> -->
+        <select class="form-control" id="sebagai" name="sebagai">
+            <option>Relawan</option>
+            <option>Pasien</option>
+            <option>Masyarakat</option>
+        </select>
 
         <label for="email" class="label sr-only mt-3">Email</label>
         <input type="email" name="email" id="email" class="form-control" placeholder="contoh@mail.com" required autofocus autocomplete="off">
