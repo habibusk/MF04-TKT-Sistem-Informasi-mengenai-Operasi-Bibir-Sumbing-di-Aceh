@@ -13,7 +13,7 @@ $id_testi = $_GET["id_testi"];
 if (hapus_testi($id_testi) > 0) {
     echo "<script>
         alert('Berhasil Menghapus Data Testimoni');
-        document.location.href = 'dasb_testimoni.php';
+        document.location.href = 'desb_testimoni.php';
         </script>";
 } else {
     echo "<script>

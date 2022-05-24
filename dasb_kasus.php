@@ -70,7 +70,7 @@ $data = query("SELECT * FROM db_user");
             </li>
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="#">
                     <i class="fas fa-solid fa-address-book"></i>
                     <span>User Login</span></a>
@@ -142,13 +142,13 @@ $data = query("SELECT * FROM db_user");
                     <!-- Page Heading -->
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Data</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Data User Login</h1>
 
                     </div>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                            <h6 class="m-0 font-weight-bold text-primary"></h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -157,6 +157,7 @@ $data = query("SELECT * FROM db_user");
                                         <tr>
                                             <th>No</th>
                                             <th>Foto Profil</th>
+                                            <th>Username</th>
                                             <th>Nama</th>
                                             <th>Email</th>
                                             <th>Sebagai</th>
@@ -171,6 +172,7 @@ $data = query("SELECT * FROM db_user");
                                                 <td><?= $no; ?></td>
                                                 <td><img src="img/<?= $user["foto_user"] ?>" alt="" width="81px"></td>
                                                 <td><?= $user["username"] ?></td>
+                                                <td><?= $user["nama_user"] ?></td>
                                                 <td><?= $user["email"] ?></td>
                                                 <td><?= $user["jenis_user"] ?></td>
                                                 <td>
@@ -185,6 +187,7 @@ $data = query("SELECT * FROM db_user");
                                         <tr>
                                             <th>No</th>
                                             <th>Foto Profil</th>
+                                            <th>Username</th>
                                             <th>Nama</th>
                                             <th>Email</th>
                                             <th>Sebagai</th>

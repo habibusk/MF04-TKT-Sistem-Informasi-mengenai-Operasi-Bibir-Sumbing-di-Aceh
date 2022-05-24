@@ -1,14 +1,10 @@
 <?php
 session_start();
-if (!isset($_SESSION["login"])) {
-    header("location : index.php");
+if (!isset($_SESSION["masuk"])) {
+    header("location: dasb_index.php");
     exit;
 }
-session_start();
-if (!isset($_SESSION["login"])) {
-    header("location : index.php");
-    exit;
-}
+
 require 'function.php';
 
 $id_foto = $_GET["id_foto"];

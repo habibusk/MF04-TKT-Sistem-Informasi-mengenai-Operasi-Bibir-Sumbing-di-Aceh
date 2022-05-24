@@ -198,15 +198,16 @@ function buat_akun($daftar)
 {
     global $connect;
 
-    $nama_user = strtolower(stripslashes($daftar["nama_user"]));
+    $username = strtolower(stripslashes($daftar["username"]));
     $foto_profil = $daftar["foto_profil"];
     $sebagai = htmlspecialchars($daftar["sebagai"]);
+    $nama_user = htmlspecialchars($daftar["nama_user"]);
     $email = htmlspecialchars($daftar["email"]);
     $pass = mysqli_real_escape_string($connect, $daftar["inputPassword"]);
     $pass2 = mysqli_real_escape_string($connect, $daftar["konfirPassword"]);
 
     //cek ada duplikat user/atau user yang udah digunakan
-    $cek_user = mysqli_query($connect, "SELECT username FROM db_user WHERE username = '$nama_user'");
+    $cek_user = mysqli_query($connect, "SELECT username FROM db_user WHERE username = '$username'");
 
     if (mysqli_fetch_assoc($cek_user)) {
         echo "<script>
@@ -227,7 +228,7 @@ function buat_akun($daftar)
     $pass = password_hash($pass, PASSWORD_DEFAULT);
 
     // masukkan data regisrtrasi user ke db
-    mysqli_query($connect, "INSERT INTO db_user VALUES('','$foto_profil','$nama_user', '$email', '$pass', '$sebagai')");
+    mysqli_query($connect, "INSERT INTO db_user VALUES('','$foto_profil','$username','$nama_user', '$email', '$pass', '$sebagai')");
 
     return mysqli_affected_rows($connect);
 }
@@ -264,5 +265,33 @@ function hapus_testi($id_testi)
 
     mysqli_query($connect, "DELETE FROM db_testi WHERE id_testi = $id_testi");
 
+    return mysqli_affected_rows($connect);
+}
+
+#untuk ubah data
+function ubah_user($user)
+{
+    global $connect;
+
+    //ambil data
+    $id_usr = $user["iduser"];
+    $ft_user = htmlspecialchars($user["foto_lama"]);
+    $nm_user = htmlspecialchars($user["nama"]);
+    $sbg = htmlspecialchars($user["jenis"]);
+    $mail = htmlspecialchars($user["email"]);
+
+
+    #cek apakah ada tomol ubah ter tekan
+    if ($_FILES['foto']['error'] === 4) {
+        $user_foto = $ft_user;
+    } else {
+        $user_foto = upload();
+    }
+
+    #query ubah 
+    $query = "UPDATE db_user SET foto_user = '$user_foto', nama_user = '$nm_user',  email ='$mail', jenis_user ='$sbg'
+    
+                WHERE id_user = $id_usr";
+    mysqli_query($connect, $query);
     return mysqli_affected_rows($connect);
 }

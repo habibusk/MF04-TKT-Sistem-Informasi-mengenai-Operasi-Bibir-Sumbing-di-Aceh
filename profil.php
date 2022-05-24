@@ -1,5 +1,13 @@
 <?php
 session_start();
+if (isset($_SESSION["masuk"])) {
+    header("location: dasb_index.php");
+    exit;
+}
+if (!isset($_SESSION["login"])) {
+    header("location: login.php");
+    exit;
+}
 require 'function.php';
 
 $nama = $_GET["username"];
@@ -40,7 +48,7 @@ if (isset($_POST["kirim"])) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>HOME | FullSenyum</title>
+    <title>Profil | FullSenyum</title>
     <style>
         .tmbllgn {
             text-decoration: none;
@@ -109,8 +117,8 @@ if (isset($_POST["kirim"])) {
             }
 
             .kiri {
-                margin-left: 0;
-                width: 300px;
+                margin-left: 30px;
+                width: 350px;
             }
 
             .banner {
@@ -254,10 +262,10 @@ if (isset($_POST["kirim"])) {
     <div class="akun">
         <div class="kiri">
             <div class="foto-profil">
-                <img src="img/<?= $data["foto_user"]; ?>" alt="" class="rounded-circle" width="81px">
+                <img src="img/gambarkasus/<?= $data["foto_user"]; ?>" alt="" class="rounded-circle" width="81px">
             </div>
             <div class="nama">
-                <h3><?= $data["username"]; ?></h3>
+                <h3><?= $data["nama_user"]; ?></h3>
             </div>
             <div class="jenis row">
                 <div class="col-sm-6" style=" width:300px;">
@@ -269,10 +277,10 @@ if (isset($_POST["kirim"])) {
             </div>
             <div class="row">
                 <div class="col-sm-6 mt-2">
-                    <a href="" class="btn btn-success">Edit</a>
+                    <a href="edit_profil.php?id_user=<?= $data["id_user"]; ?>" class="btn btn-success">Edit</a>
                 </div>
                 <div class="col-sm-6 mt-2">
-                    <a href="" class="btn btn-primary">testimoni</a>
+                    <a href="testimoni.php" class="btn btn-primary">testimoni</a>
                 </div>
             </div>
 
